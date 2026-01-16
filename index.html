@@ -3,575 +3,454 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandan Dayma | Artificial Intelligence Engineer</title>
+    <title>Nandan Dayma | AI Architect</title>
     
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* --- The "Professional Minimalist" Theme --- */
-
-        /* -- 1. Variables and Global Styles -- */
+        /* --- 1. THE "TOP 1%" DESIGN SYSTEM --- */
         :root {
-            --bg-dark: #1a1a1a;
-            --bg-light: #222222;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent-orange: #f97316;
-            --font-primary: 'Poppins', sans-serif;
+            --bg-deep: #050505;
+            --bg-card: #0a0a0a;
+            --text-main: #f0f0f0;
+            --text-muted: #888888;
+            --accent: #f97316; /* Your Signature Orange */
+            --border-color: rgba(255, 255, 255, 0.05);
+            --spotlight-size: 400px;
+            --cursor-size: 20px;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        *, *::before, *::after { box-sizing: border-box; cursor: none; /* Hide default cursor */ }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            font-family: var(--font-primary);
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Manrope', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        ::selection {
-            background-color: var(--accent-orange);
-            color: var(--bg-dark);
-        }
-
-        /* -- 2. Typography -- */
-        h1, h2, h3, h4 {
-            font-family: var(--font-primary);
-            color: var(--text-primary);
-            margin-top: 0;
-            font-weight: 700;
-        }
-
-        h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
-        h2 { 
-            font-size: 2.5rem; 
-            text-align: left; 
-            margin-bottom: 1rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 4px;
-            width: 50px;
-            background-color: var(--accent-orange);
-        }
-
-        h3 { font-size: 1.5rem; }
-        h4 { font-size: 0.9rem; color: var(--accent-orange); letter-spacing: 1px; text-transform: uppercase; }
-
-        p { color: var(--text-secondary); max-width: 65ch; }
-        a { color: var(--accent-orange); text-decoration: none; transition: color 0.3s ease; }
-        a:hover { color: white; }
+        h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+        .editorial { font-family: 'Playfair Display', serif; font-style: italic; }
         
-        /* -- 3. Layout & Sections -- */
-        section {
-            padding: 6rem 10%;
-            position: relative;
-        }
-        
-        .main-header + main .hero {
-            padding-top: 6rem;
-            height: auto;
+        html.lenis { height: auto; }
+
+        /* --- 2. CINEMATIC GRAIN & NOISE (The "Expensive" Texture) --- */
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 999; opacity: 0.05;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
         }
 
-        /* Adjusted header for better responsiveness */
-        .main-header {
-            position: fixed;
-            top: 0;
+        /* --- 3. MAGNETIC FLUID CURSOR --- */
+        .cursor-dot {
+            position: fixed; top: 0; left: 0; width: 6px; height: 6px;
+            background: var(--accent); border-radius: 50%; z-index: 9999;
+            pointer-events: none; transform: translate(-50%, -50%);
+        }
+        .cursor-outline {
+            position: fixed; top: 0; left: 0; width: 40px; height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50%; z-index: 9998;
+            pointer-events: none; transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+        }
+        /* Cursor expands on hover */
+        body.hovering .cursor-outline {
+            width: 70px; height: 70px;
+            background: rgba(255, 255, 255, 0.05); border-color: transparent;
+            backdrop-filter: blur(2px);
+        }
+
+        /* --- 4. HERO SECTION (The Rockstar Zoom) --- */
+        .hero-container {
+            height: 100vh;
             width: 100%;
-            padding: 1.5rem 5%; /* Use a smaller, consistent padding */
-            box-sizing: border-box;
-            background: rgba(26, 26, 26, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: var(--font-primary);
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            /* Add min-width to prevent the logo from shrinking */
-            min-width: 100px;
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden; background-color: var(--bg-deep);
+            position: relative; z-index: 1;
         }
 
-        /* Make navigation container more flexible */
-        .main-header nav {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap; /* Allow items to wrap if necessary */
-            justify-content: flex-end; /* Align links to the right */
-        }
-        
-        .main-header nav a {
-            margin-left: 2rem;
-            font-family: var(--font-primary);
-            font-size: 0.9rem;
-            font-weight: 600;
+        .hero-bg-reveal {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0.4; transform: scale(1); z-index: 1;
+            filter: grayscale(100%) contrast(1.2); /* Cinematic B&W look */
         }
 
-        .contact-button {
-            border: 1px solid var(--accent-orange);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            white-space: nowrap; /* Prevent button text from wrapping */
+        .hero-title {
+            position: relative; z-index: 3;
+            font-size: 11vw; font-weight: 600; text-transform: uppercase;
+            line-height: 0.85; text-align: center; letter-spacing: -0.04em;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.7); color: transparent;
         }
 
-        .contact-button:hover {
-            background-color: var(--accent-orange);
-            color: var(--bg-dark) !important;
+        .hero-subtitle {
+            position: absolute; bottom: 10%; z-index: 3;
+            font-size: 1rem; color: var(--accent); letter-spacing: 4px;
+            text-transform: uppercase; display: flex; align-items: center; gap: 10px;
+        }
+        .hero-subtitle::before { content: ''; width: 50px; height: 1px; background: var(--accent); }
+
+        /* --- 5. CONTENT WRAPPER --- */
+        .content-wrapper { position: relative; z-index: 10; background-color: var(--bg-deep); }
+
+        section {
+            padding: 10rem 8%;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 5%;
+        .section-header { margin-bottom: 5rem; }
+        .big-title { font-size: 4rem; margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .big-title span { color: var(--accent); font-family: 'Playfair Display', serif; font-style: italic; }
+
+        /* --- 6. SPOTLIGHT CARDS (Physics-based Lighting) --- */
+        .spotlight-grid {
+            display: grid; grid-template-columns: 1fr; gap: 2rem;
             position: relative;
-            background: var(--bg-dark);
-            min-height: 80vh;
         }
 
-        .hero-content .divider {
-            height: 2px;
-            width: 50px;
-            background-color: var(--accent-orange);
-            margin: 1.5rem auto;
-        }
-
-        .hero-content p {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Updated about-section for better responsiveness and to fix overlap */
-        .about-section {
-            /* Add top padding to account for the fixed header height */
-            padding-top: 8rem; 
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            background-color: var(--bg-light);
-            flex-wrap: wrap;
-            justify-content: center;
-            text-align: left;
-        }
-
-        .profile-photo-container {
+        .spot-card {
+            background-color: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
             position: relative;
-            flex-shrink: 0;
-            text-align: center; /* Center the name below the image */
+            overflow: hidden;
+            transition: transform 0.3s ease;
         }
         
-        .profile-photo {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #333;
-            filter: grayscale(0); /* Removed the grayscale filter for no black tint */
-            transition: filter 0.5s ease, border-color 0.5s ease;
+        /* The glow effect logic */
+        .spot-card::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(var(--spotlight-size) circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(255, 255, 255, 0.08), transparent 40%);
+            z-index: 1; opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
         }
-        
-        .profile-photo:hover {
-            filter: grayscale(0);
-            border-color: var(--accent-orange);
-        }
+        .spot-card:hover::before { opacity: 1; }
+        .spot-card:hover { transform: translateY(-5px); }
+        .card-content { position: relative; z-index: 2; }
 
-        .profile-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-top: 1rem;
-            display: block;
-        }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 10px; }
+        .job-title { font-size: 1.8rem; font-weight: 600; color: white; }
+        .company { color: var(--accent); font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; }
+        .date { font-family: monospace; color: #555; border: 1px solid #333; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; }
+        .description ul { list-style: none; padding: 0; margin: 0; }
+        .description li { color: var(--text-muted); margin-bottom: 10px; padding-left: 20px; position: relative; line-height: 1.7; }
+        .description li::before { content: '▹'; position: absolute; left: 0; color: var(--accent); }
 
-        .projects-section, .experience-section {
-            background-color: var(--bg-dark);
+        /* --- 7. BENTO GRID (Skills) --- */
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;
         }
-        
-        .experience-section, .education-section {
-            background-color: var(--bg-light);
+        .bento-box {
+            background: #0f0f0f; border: 1px solid var(--border-color); padding: 2rem; border-radius: 12px;
+            transition: 0.3s;
         }
+        .bento-box:hover { border-color: var(--accent); background: #141414; }
+        .tech-tag {
+            display: inline-block; padding: 5px 12px; border: 1px solid #333; border-radius: 50px;
+            font-size: 0.75rem; color: #999; margin: 5px 2px; transition: 0.3s;
+        }
+        .bento-box:hover .tech-tag { color: white; border-color: #666; }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+        /* --- 8. NAVIGATION --- */
+        .nav-dock {
+            position: fixed; top: 2rem; right: 3rem; z-index: 100;
+            display: flex; gap: 3rem; mix-blend-mode: exclusion;
         }
+        .nav-link {
+            color: white; text-decoration: none; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 2px; position: relative;
+        }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0%; height: 1px; background: white; transition: 0.3s; }
+        .nav-link:hover::after { width: 100%; }
 
-        .project-card, .education-item, .experience-item {
-            background-color: var(--bg-light);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid transparent;
+        /* --- 9. FOOTER --- */
+        footer { padding: 8rem 5%; text-align: center; background: #000; border-top: 1px solid #222; }
+        .cta-mail {
+            font-size: 3rem; color: transparent; -webkit-text-stroke: 1px #555;
+            text-decoration: none; font-family: 'Playfair Display', serif; transition: 0.3s;
         }
-        
-        .project-card {
-            background-color: var(--bg-dark);
-        }
-        
-        .project-card:hover, .education-item:hover, .experience-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
-            border-color: var(--accent-orange);
-        }
+        .cta-mail:hover { color: var(--accent); -webkit-text-stroke: 0px; }
 
-        .project-card h3 {
-             margin-top: 0.5rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: auto;
-            padding-top: 1rem;
-            font-family: var(--font-primary);
-            font-weight: 600;
-        }
-        
-        .project-link::after {
-            content: ' →';
-        }
-
-        .skills-section, .education-section, .experience-section {
-            padding-top: 4rem;
-        }
-        
-        .education-item, .experience-item {
-            margin-bottom: 2rem;
-        }
-        
-        .education-item h4, .experience-item h4 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .education-item h3, .experience-item h3 {
-            margin-bottom: 0.25rem;
-        }
-        
-        .education-item p, .experience-item p {
-            font-family: var(--font-primary);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .skills-grid, .education-list, .experience-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            align-items: start;
-        }
-        
-        .skills-grid {
-            gap: 2rem;
-        }
-
-        .skill-category ul, .education-item ul, .experience-item ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .skill-category ul li, .education-item ul li, .experience-item ul li {
-            margin-bottom: 0.75rem;
-            color: var(--text-secondary);
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23f97316" class="bi bi-dot" viewBox="0 0 16 16"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>') no-repeat left center;
-            background-size: 16px;
-            padding-left: 24px;
-        }
-
-        .footer {
-            background-color: var(--bg-dark);
-            text-align: center;
-            padding: 4rem 10%;
-        }
-
-        .email-link {
-            font-size: 1.5rem;
-            font-family: var(--font-primary);
-            display: block;
-            margin: 1rem 0 2rem;
-        }
-
-        .social-links a {
-            margin: 0 1rem;
-            font-family: var(--font-primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        /* Elements to be animated are initially hidden */
-        .anim-fade-in, .anim-slide-up {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        /* -- 4. Responsiveness -- */
-        @media (max-width: 1024px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            section { padding: 4rem 8%; }
-            .main-header { padding: 1rem 8%; }
-            .about-section {
-                padding-top: 3rem;
-            }
-        }
-        
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
-            .main-header { 
-                padding: 1rem 5%; 
-                flex-direction: column; /* Stack logo and nav vertically */
-                align-items: flex-start; /* Align everything to the left */
-            }
-            .logo {
-                min-width: unset;
-                margin-bottom: 1rem; /* Add space below the logo */
-            }
-            .main-header nav {
-                width: 100%;
-                justify-content: space-between; /* Distribute links evenly */
-            }
-            .main-header nav a {
-                margin-left: 0; /* Remove left margin on nav links */
-            }
-            .main-header nav a:not(.contact-button) { 
-                display: none; 
-            }
-            .contact-button {
-                margin-left: 0;
-            }
-            
-            .about-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-            
-            .about-text {
-                margin-top: 0;
-            }
-
-            .about-section p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .profile-photo {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .projects-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 16vw; }
+            .nav-dock { display: none; }
+            .cursor-dot, .cursor-outline { display: none; }
+            *, *::before, *::after { cursor: auto; }
+            .big-title { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
-    <header class="main-header">
-        <div class="logo">Nandan Dayma</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact" class="contact-button">Contact</a>
-        </nav>
-    </header>
 
-    <main>
-        <section id="about" class="about-section">
-            <div class="profile-photo-container anim-slide-up">
-                <img src="Nandan Profile Photo.png" alt="Nandan Dayma" class="profile-photo" onerror="this.onerror=null;this.src='https://placehold.co/250x250/222/e0e0e0?text=ND';">
-                 <span class="profile-name">Nandan Dayma</span>
-            </div>
-            <div class="about-text anim-slide-up">
-                <h3>A driven and growing Artificial Intelligence Engineer.</h3>
-                <p>My purpose is to engineer solutions that don't just solve problems—they redefine what's possible. As an Artificial Intelligence Engineer, I am building my expertise in the dynamic space of AI and automation. I thrive on architecting solutions that enhance operational excellence and fortify data integrity. I am a lifelong learner, dedicated to mastering new AI architectures and technologies to take on the next generation of technical challenges. I am seeking a role where I can apply my foundational knowledge to build innovative products at a global scale.</p>
-            </div>
-        </section>
+    <div class="noise-overlay"></div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="nav-dock">
+        <a href="#about" class="nav-link hover-trigger">About</a>
+        <a href="#experience" class="nav-link hover-trigger">Work</a>
+        <a href="#projects" class="nav-link hover-trigger">Projects</a>
+        <a href="#contact" class="nav-link hover-trigger">Contact</a>
+    </nav>
+
+    <div class="hero-container">
+        <img src="Nandan Profile Photo.png" class="hero-bg-reveal" alt="Nandan Dayma" 
+             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=2864&auto=format&fit=crop';">
         
-        <section id="experience" class="experience-section">
-            <h2 class="anim-slide-up">Professional Experience</h2>
-            <div class="experience-list">
-                <div class="experience-item anim-slide-up">
-                    <h4>AI Intern</h4>
-                    <h3>iAssist Innovations Labs</h3>
-                    <p>Jul 2025 - Present | Remote</p>
-                    <ul>
-                        <li>Established robust data integrity by implementing validation frameworks and automated checks to ensure the accuracy and reliability of all data used for strategic decision-making.</li>
-                        <li>Translated data into growth by creating predictive models that uncover market trends and user behavior patterns, directly informing product and business strategy for future growth.</li>
-                        <li>Optimized operations by using data to streamline workflows and improve efficiency by identifying and addressing systemic issues proactively, ensuring core services remain reliable and scalable.</li>
-                    </ul>
-                </div>
-                <div class="experience-item anim-slide-up">
-                    <h4>CSR Lead</h4>
-                    <h3>Quantech Infosystem LLP</h3>
-                    <p>Feb 2024 – July 2024</p>
-                    <ul>
-                        <li>Led a CSR team of 8 members in a dynamic startup environment.</li>
-                        <li>Developed and executed corporate social responsibility strategies.</li>
-                        <li>Set objectives aligned with community impact and business goals.</li>
-                        <li>Provided leadership, tracked progress, and maintained internal reports.</li>
-                    </ul>
-                </div>
-                <div class="experience-item anim-slide-up">
-                    <h4>Customer Associate</h4>
-                    <h3>ARTFILLS</h3>
-                    <p>Nov 2023 – Jan 2024</p>
-                    <ul>
-                        <li>Assisted customers with inquiries and order-related support.</li>
-                        <li>Handled communication and service coordination to improve satisfaction.</li>
-                        <li>Helped maintain a smooth customer experience and brand consistency.</li>
-                    </ul>
-                </div>
-                <div class="experience-item anim-slide-up">
-                    <h4>Intern</h4>
-                    <h3>K.K Chanani & Associates</h3>
-                    <p>July 2023 – Sept 2023</p>
-                    <ul>
-                        <li>Assisted in GST registration processes for clients.</li>
-                        <li>Supported documentation, data entry, and compliance tasks.</li>
-                        <li>Learned about client interaction and Indian taxation systems.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <div class="hero-title">
+            <div>NANDAN</div>
+            <div class="editorial">DAYMA</div>
+        </div>
+        <div class="hero-subtitle">
+            AI Architect & Engineer
+        </div>
+    </div>
 
-        <section id="projects" class="projects-section">
-            <h2 class="anim-slide-up">Featured Projects</h2>
-            <div class="projects-placeholder">
-                <p style="text-align: center; color: var(--text-secondary); font-style: italic; max-width: 600px; margin: 0 auto;">
-                    My most impactful projects are currently under review. Details will be showcased as soon as they are approved.
+    <div class="content-wrapper">
+        
+        <section id="about">
+            <div class="section-header">
+                <h4 style="color: var(--accent); margin-bottom: 1rem; letter-spacing: 2px;">01. INTRODUCTION</h4>
+                <h2 class="big-title">Engineering intelligence <br><span>into reality.</span></h2>
+            </div>
+            <div style="max-width: 800px; margin-left: auto;">
+                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted);">
+                    I don't just write code; I architect systems. As an <strong>Artificial Intelligence Engineer</strong>, I operate at the intersection of data integrity and scalable backend architecture. I thrive on architecting solutions that enhance operational excellence and fortify data integrity. I am a lifelong learner, dedicated to mastering new AI architectures to take on the next generation of technical challenges.
                 </p>
             </div>
         </section>
-        
-        <section id="education" class="education-section">
-            <h2 class="anim-slide-up">Education</h2>
-            <div class="education-list">
-                <div class="education-item anim-slide-up">
-                    <h4>INFORMATION TECHNOLOGY, Diploma</h4>
-                    <h3>Sandip University</h3>
-                    <p>Sep 2022 - Jul 2025</p>
+
+        <section id="experience">
+            <div class="section-header">
+                <h4 style="color: var(--accent); margin-bottom: 1rem; letter-spacing: 2px;">02. CAREER HISTORY</h4>
+            </div>
+            
+            <div class="spotlight-grid" id="spotlight-grid">
+                
+                <div class="spot-card hover-trigger">
+                    <div class="card-content">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">AI Intern</div>
+                                <div class="company">iAssist Innovations Labs</div>
+                            </div>
+                            <span class="date">Jul 2025 - Present</span>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Actively contributing to the development of the company's flagship web products, utilizing Python (Flask) for backend logic.</li>
+                                <li>Responsible for revamping user interfaces to improve accessibility and visual appeal using modern front-end technologies.</li>
+                                <li>Working closely with the engineering team to translate business requirements into functional code features.</li>
+                                <li>Balancing academic responsibilities with professional software delivery in a fast-paced, agile environment.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="education-item anim-slide-up">
-                    <h4>High School Certification</h4>
-                    <h3>CHAVARA HIGH SCHOOL, DHULE</h3>
-                    <p>Completed 10th grade, scoring 79%.</p>
+
+                <div class="spot-card hover-trigger">
+                    <div class="card-content">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Data Science Intern</div>
+                                <div class="company">V2V EdTech LLP</div>
+                            </div>
+                            <span class="date">Jun 2025 - Aug 2025</span>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Completed an intensive 12-week program focused on building practical, real-world skills in Python and Data Science.</li>
+                                <li><strong>Data Analysis:</strong> Utilized libraries like NumPy, Pandas, and Matplotlib for data cleaning, aggregation, and visualization.</li>
+                                <li><strong>App Dev:</strong> Built a range of projects, including a Snake game (Pygame), a blogging page (Streamlit), and forms (Tkinter).</li>
+                                <li><strong>Core Programming:</strong> Applied OOP principles (polymorphism, inheritance) to develop robust structures.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="spot-card hover-trigger">
+                    <div class="card-content">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Customer Associate</div>
+                                <div class="company">ARTFILLS</div>
+                            </div>
+                            <span class="date">Nov 2023 – Jan 2024</span>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Assisted customers with inquiries and order-related support.</li>
+                                <li>Handled communication and service coordination to improve satisfaction.</li>
+                                <li>Helped maintain a smooth customer experience and brand consistency.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spot-card hover-trigger">
+                    <div class="card-content">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Taxation Intern</div>
+                                <div class="company">K.K Chanani & Associates</div>
+                            </div>
+                            <span class="date">July 2023 – Sept 2023</span>
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <li>Assisted in GST registration processes for clients.</li>
+                                <li>Supported documentation, data entry, and compliance tasks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
-        
-        <section id="skills" class="skills-section">
-            <h2 class="anim-slide-up">Core Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-category anim-slide-up">
-                    <h4>AI/ML & Data</h4>
-                    <ul>
-                        <li>Generative AI Toolchains</li>
-                        <li>Prompt Engineering</li>
-                        <li>Data Analysis</li>
-                        <li>Automation & Scripting</li>
-                    </ul>
+
+        <section id="skills">
+            <div class="section-header">
+                <h4 style="color: var(--accent); margin-bottom: 1rem; letter-spacing: 2px;">03. TECHNICAL ARSENAL</h4>
+            </div>
+            <div class="bento-grid">
+                
+                <div class="bento-box hover-trigger">
+                    <h3 style="color: white; margin-bottom: 1rem;">AI & Data</h3>
+                    <div>
+                        <span class="tech-tag">Generative AI</span>
+                        <span class="tech-tag">Prompt Engineering</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
                 </div>
-                <div class="skill-category anim-slide-up">
-                    <h4>Languages & Frameworks</h4>
-                    <ul>
-                        <li>Python</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>Flask</li>
-                        <li>HTML5 & CSS3</li>
-                    </ul>
+
+                <div class="bento-box hover-trigger">
+                    <h3 style="color: white; margin-bottom: 1rem;">Engineering</h3>
+                    <div>
+                        <span class="tech-tag">Python (Flask)</span>
+                        <span class="tech-tag">JavaScript ES6+</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Pygame</span>
+                        <span class="tech-tag">HTML5/CSS3</span>
+                    </div>
                 </div>
-                <div class="skill-category anim-slide-up">
-                    <h4>Developer Tools & Platforms</h4>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>VS Code</li>
-                        <li>Command Line</li>
-                        <li>ReportLab Library</li>
-                    </ul>
+
+                <div class="bento-box hover-trigger">
+                    <h3 style="color: white; margin-bottom: 1rem;">Tools</h3>
+                    <div>
+                        <span class="tech-tag">Git & GitHub</span>
+                        <span class="tech-tag">VS Code</span>
+                        <span class="tech-tag">CLI</span>
+                        <span class="tech-tag">ReportLab</span>
+                    </div>
                 </div>
+
             </div>
         </section>
-    </main>
 
-    <footer id="contact" class="footer">
-        <div class="anim-slide-up">
-            <h3>Let's Build the Future Together</h3>
-            <p>I am actively seeking opportunities to apply my skills in a challenging and innovative environment. <br>I am open to collaboration and new ventures. Let's connect.</p>
-            <p style="color: var(--text-secondary); margin-top: 2rem; text-align: center;">Dhule, Maharashtra, India</p>
-            <a href="mailto:nandandayma.work@gmail.com" class="email-link">nandandayma.work@gmail.com</a>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/daymanandan" target="_blank">LinkedIn</a>
-                <a href="https://github.com/daymanandan15-arch" target="_blank">GitHub</a>
-                <a href="#" target="_blank">Resume</a>
+        <footer id="contact">
+            <p style="color: #666; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem;">Ready to collaborate?</p>
+            <a href="mailto:nandandayma.work@gmail.com" class="cta-mail hover-trigger">Let's Build the Future</a>
+            
+            <div style="margin-top: 5rem; display: flex; justify-content: center; gap: 3rem;">
+                <a href="https://www.linkedin.com/in/daymanandan" class="hover-trigger" style="color: white; text-decoration: none;">LINKEDIN</a>
+                <a href="https://github.com/daymanandan15-arch" class="hover-trigger" style="color: white; text-decoration: none;">GITHUB</a>
             </div>
-        </div>
-    </footer>
+            <p style="margin-top: 3rem; color: #333; font-size: 0.8rem;">ENGINEERED IN NASHIK, INDIA.</p>
+        </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            gsap.registerPlugin(ScrollTrigger);
-            
-            const slideUpElements = document.querySelectorAll('.anim-slide-up');
-            slideUpElements.forEach(el => {
-                gsap.fromTo(el, 
-                    { opacity: 0, y: 50 }, 
-                    { 
-                        opacity: 1, 
-                        y: 0, 
-                        duration: 0.8,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: el,
-                            start: 'top 85%',
-                            toggleActions: 'play none none none'
-                        }
-                    }
-                );
-            });
-            
-            gsap.from('.hero .anim-fade-in', {
-                opacity: 0,
-                y: 20,
-                duration: 1,
-                stagger: 0.2,
-                ease: 'power3.out',
-                delay: 0.2
-            });
-        });
-    </script>
+        // 1. SPOTLIGHT MOUSE TRACKING
+        const spotlightGrid = document.getElementById("spotlight-grid");
+        const cards = document.querySelectorAll(".spot-card");
 
+        spotlightGrid.onmousemove = e => {
+            for(const card of cards) {
+                const rect = card.getBoundingClientRect(),
+                      x = e.clientX - rect.left,
+                      y = e.clientY - rect.top;
+
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            };
+        }
+
+        // 2. MAGNETIC FLUID CURSOR
+        const cursorDot = document.querySelector(".cursor-dot");
+        const cursorOutline = document.querySelector(".cursor-outline");
+        const hoverTriggers = document.querySelectorAll(".hover-trigger");
+
+        window.addEventListener("mousemove", (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Lag effect for outline
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        hoverTriggers.forEach(el => {
+            el.addEventListener("mouseenter", () => document.body.classList.add("hovering"));
+            el.addEventListener("mouseleave", () => document.body.classList.remove("hovering"));
+        });
+
+        // 3. LENIS SMOOTH SCROLL
+        const lenis = new Lenis({
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // 4. GSAP HERO ZOOM
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".hero-container",
+                start: "top top",
+                end: "+=150%", 
+                scrub: 1,
+                pin: true
+            }
+        });
+
+        tl.to(".hero-title", {
+            scale: 50,      
+            opacity: 0,     
+            ease: "power2.inOut",
+            duration: 5
+        })
+        .to(".hero-bg-reveal", {
+            opacity: 1,     
+            scale: 1.1,     
+            duration: 5
+        }, "<")
+        .to(".hero-subtitle", {
+            opacity: 0,
+            y: 50,
+            duration: 1
+        }, "<");
+    </script>
 </body>
 </html>
-
-
-
-
-
-
